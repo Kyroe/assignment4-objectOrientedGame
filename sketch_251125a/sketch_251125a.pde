@@ -32,16 +32,16 @@ void draw() {
       asteroids.remove(i);
     }
   }
-//-------------------[EXPLOSION]------------------------------------
+  //-------------------[EXPLOSION]------------------------------------
 
-for (ExplosionSystem es : systems){
-//  ExplosionSystem es = systems.get(i);
-  es.run();
- // es.addExplosion();
-}
-
+  for (ExplosionSystem es : systems) {
+    //  ExplosionSystem es = systems.get(i);
+    es.run();
+    // es.addExplosion();
+  }
 }
 
 void mousePressed() {
-  systems.add(new ExplosionSystem(25, new PVector(mouseX, mouseY)));
+    systems.add(new ExplosionSystem(25, new PVector(mouseX, mouseY)));
+  
 }
