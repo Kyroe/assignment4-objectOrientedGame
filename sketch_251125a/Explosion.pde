@@ -7,12 +7,12 @@ class Explosion {
 
   color g;
 
-  Explosion () {
+  Explosion (PVector tempV) {
 
-    location = new PVector(mouseX, mouseY);
+    location = tempV.copy();
     velocity = new PVector (random(-10, 10), random(-10, 10));
     acceleration = new PVector (0, 0.5);
-    lifespan = 100;
+    lifespan = 255;
     g = 234;
   }
 

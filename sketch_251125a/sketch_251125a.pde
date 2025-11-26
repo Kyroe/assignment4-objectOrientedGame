@@ -1,14 +1,17 @@
 ArrayList<Asteroid> asteroids;
 float asteroidSpawn = 0;
 
+ArrayList<ExplosionSystem> systems;
+
 void setup() {
   size (400, 400);
   asteroids = new ArrayList<Asteroid>();
+  systems = new ArrayList<ExplosionSystem>();
 }
 
 void draw() {
   background(#0A1027);
-
+  //-----------------[ASTEROIDS]-----------------------------------
   asteroidSpawn += 1;
   if (asteroidSpawn == 20) {
     asteroids.add(new Asteroid());
@@ -28,6 +31,17 @@ void draw() {
     if (a.isHit()) {
       asteroids.remove(i);
     }
-    println(asteroids.size());
   }
+//-------------------[EXPLOSION]------------------------------------
+
+for (ExplosionSystem es : systems){
+//  ExplosionSystem es = systems.get(i);
+  es.run();
+ // es.addExplosion();
+}
+
+}
+
+void mousePressed() {
+  systems.add(new ExplosionSystem(25, new PVector(mouseX, mouseY)));
 }
