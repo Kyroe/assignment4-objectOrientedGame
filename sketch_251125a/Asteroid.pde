@@ -9,6 +9,7 @@ class Asteroid {
   float centreX;
   float centreY;
 
+
   Asteroid() {
     w = random(150, 450);
     tempMove = random(0.5, 5);
@@ -28,14 +29,28 @@ class Asteroid {
     xMove += 1;
     yMove += tempMove;
   }
-  
+
+  boolean offScreen () {
+    if (centreX + 80 < width +20 && centreY - 80 > height + 20) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  boolean isHit() {
+    if (mouseX > centreX - 40 && mouseX < centreX + 40 && mouseY > centreY - 40 && mouseY < centreY + 40 && mousePressed) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
   void hitbox () {
     stroke(255);
-    fill(0,0,0,0);
+    fill(0, 0, 0, 0);
     rectMode(CENTER);
     rect(centreX, centreY, 80, 80);
-    
-  //  if(mouseX > centreX - 80 && mouseX < centreX + 80 && mouseY > centreY
-    
- // }
+  }
 }
