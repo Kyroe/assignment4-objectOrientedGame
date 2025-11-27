@@ -1,20 +1,37 @@
 ArrayList<Asteroid> asteroids;
 float asteroidSpawn = 0;
 
+Star[] stars = new Star[25];
+
 ArrayList<ExplosionSystem> systems;
 
 Score score;
 int s = 0;
+
+Cursor cursors;
 
 void setup() {
   size (400, 400);
   asteroids = new ArrayList<Asteroid>();
   systems = new ArrayList<ExplosionSystem>();
   score = new Score();
+  cursors = new Cursor();
+  
+  for (int i = 0; i < stars.length; i++) {
+    stars[i] = new Star();
+  }
 }
 
 void draw() {
   background(#0A1027);
+  
+  noStroke();
+  
+  for (int i = 0; i < stars.length; i++) {
+    stars[i].drawStar();
+
+  }
+  
   //-----------------[ASTEROIDS]-----------------------------------
   asteroidSpawn += 1;
   if (asteroidSpawn == 20) {
@@ -68,6 +85,9 @@ void draw() {
   if (score.win() && keyPressed) {
     score.score = 0;
   }
+  
+  cursors.drawCursor();
+  
 }
 
 void mousePressed() {

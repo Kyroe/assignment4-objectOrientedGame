@@ -19,7 +19,6 @@ class Explosion {
 
   void drawExplo() {
 
-    noStroke();
     fill(250, g, 150, lifespan); //from proccessing examples https://processing.org/examples/multipleparticlesystems.html
     ellipse(location.x, location.y, 10, 10);
 
