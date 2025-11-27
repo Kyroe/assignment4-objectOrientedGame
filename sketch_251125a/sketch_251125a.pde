@@ -3,10 +3,14 @@ float asteroidSpawn = 0;
 
 ArrayList<ExplosionSystem> systems;
 
+Score score;
+int s = 0;
+
 void setup() {
   size (400, 400);
   asteroids = new ArrayList<Asteroid>();
   systems = new ArrayList<ExplosionSystem>();
+  score = new Score();
 }
 
 void draw() {
@@ -26,12 +30,24 @@ void draw() {
 
     if (a.offScreen()) {
       asteroids.remove(i);
+      // println(a.offScreen());
+      // }else {
+      //println(a.offScreen());
     }
+
+    if (a.isHit()) {
+      s += 1;
+    } else {
+      s = 0;
+    }
+
+    score.display(s);
 
     if (a.isHit()) {
       asteroids.remove(i);
     }
   }
+
   //-------------------[EXPLOSION]------------------------------------
 
   for (ExplosionSystem es : systems) {
@@ -42,6 +58,5 @@ void draw() {
 }
 
 void mousePressed() {
-    systems.add(new ExplosionSystem(25, new PVector(mouseX, mouseY)));
-  
+  systems.add(new ExplosionSystem(25, new PVector(mouseX, mouseY)));
 }
