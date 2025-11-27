@@ -1,5 +1,5 @@
 class Cursor {
-  
+  //replaces the cursor
   Cursor(){
   }
  

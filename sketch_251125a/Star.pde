@@ -1,5 +1,5 @@
 class Star {
-  
+  //draw stars at random locations and "distances" in the background
   PVector location;
   PVector velocity;
   float a;
