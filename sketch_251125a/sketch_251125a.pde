@@ -55,6 +55,19 @@ void draw() {
     es.run();
     // es.addExplosion();
   }
+
+  if (score.win()) {
+    fill(#62E385);
+    rectMode(CORNERS);
+    rect(0, 0, 400, 400);
+    fill(255);
+    textSize(25);
+    text("You Win! press space to restart", width/2 - 150, height/2);
+  }
+
+  if (score.win() && keyPressed) {
+    score.score = 0;
+  }
 }
 
 void mousePressed() {
