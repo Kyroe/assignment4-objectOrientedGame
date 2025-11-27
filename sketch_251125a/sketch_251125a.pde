@@ -10,6 +10,8 @@ int s = 0;
 
 Cursor cursors;
 
+PImage photo;
+
 void setup() {
   size (400, 400);
   asteroids = new ArrayList<Asteroid>();

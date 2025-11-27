@@ -13,13 +13,17 @@ class Asteroid {
   Asteroid() {
     w = random(150, 450);
     tempMove = random(0.5, 5);
+    photo = loadImage("Asteroid.png");
   }
 
   void drawAster() {
     centreX = w - xMove;
     centreY = (m + yMove) - 100;
-    fill(255);
-    ellipse(centreX, centreY, 80, 80);
+    //    stroke(#A9B2CB);
+    //   strokeWeight(2);
+    //  fill(#4B607C);
+    imageMode(CENTER);
+    image(photo, centreX, centreY);
   }
 
   void moveAster() {
@@ -44,13 +48,5 @@ class Asteroid {
     } else {
       return false;
     }
-  }
-
-
-  void hitbox () {
-    stroke(255);
-    fill(0, 0, 0, 0);
-    rectMode(CENTER);
-    rect(centreX, centreY, 80, 80);
   }
 }
